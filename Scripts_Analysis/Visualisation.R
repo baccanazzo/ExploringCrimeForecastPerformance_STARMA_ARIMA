@@ -42,15 +42,17 @@ cr_max_agg_y <- aggregate(cr_max_y["sumall"], by=cr_max_y["tp"], sum)
 cr_max_agg_y$tp <- as.Date(cr_max_agg_y$tp, format="%Y")
 
 cr_max_TSP_p1 <- ggplot() +
-  #geom_line(data=cr_max_agg_1w, aes(x = tp, y = sumall), color="grey30", size=.3) +
+  geom_line(data=cr_max_agg_1w, aes(x = tp, y = sumall), color="grey30", size=.3) +
   #geom_line(data=cr_max_agg_1m, aes(x = tp, y = sumall), color="grey30", size=.5) +
   #geom_line(data=cr_max_agg_6m, aes(x = tp, y = sumall), color="grey30", size=.5) +
   #geom_line(data=cr_max_agg_3m, aes(x = tp, y = sumall), color="grey30", size=.5) +
-  geom_line(data=cr_max_agg_y, aes(x = tp, y = sumall), color="grey30", size=.5) +
+  #geom_line(data=cr_max_agg_y, aes(x = tp, y = sumall), color="grey30", size=.5) +
   xlab("Year") +
   ylab("All arrest counts") +
-  theme(axis.title.y = element_text(size = 15)) +
-  theme(axis.title.x = element_text(size = 15)) +
+  theme(axis.title.y = element_text(size = 25)) +
+  theme(axis.text.y=element_text(size=15)) +
+  theme(axis.text.x=element_text(size=15))+
+  theme(axis.title.x = element_text(size = 25)) +
   scale_x_date(date_labels = "%Y",date_minor_breaks = "1 month", date_breaks = "1 year")
 
 print(cr_max_TSP_p1)
